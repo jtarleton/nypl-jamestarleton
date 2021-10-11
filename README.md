@@ -1,2 +1,2 @@
-# nypl-jamestarleton
-A Drupal 9 project to include a NYPL custom module and theme.
+# nypl-james
+A custom theme and module for NYPL
