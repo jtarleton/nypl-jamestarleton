@@ -54,4 +54,9 @@ padding:10px;
 }
 
 
+.field--name-field-start-date {
+       float: left;
+       width: auto;
+}
+
 
