@@ -32,8 +32,10 @@ function nypl_fall_preprocess_field(&$variables, $hook) {
     if ($variables['field_name'] == 'field_start_date' 
 		|| $variables['field_name'] == 'field_end_date' ) {
         $variables['classes_array'][] = 'card-date-custom';
-
-	
+	$dash = '';
+	if ($variables['field_name'] == 'field_start_date') {
+		$dash .= ' - ';
+	}	
 
 	if (!empty($variables['items'][0]['content']['#markup']))
 	$date = $variables['items'][0]['content']['#markup'];
@@ -41,7 +43,7 @@ function nypl_fall_preprocess_field(&$variables, $hook) {
 		&& empty($date)) {
 	  $date = $variables['items'][0]['content']['#text']; 
 	}
-	$date = _nypl_fall_date_helper($date);
+	$date = _nypl_fall_date_helper($date) . $dash;
 
 	if (isset($variables['items'][0]['content']['#markup'])) {
 	  $variables['items'][0]['content']['#markup'] = $date;
