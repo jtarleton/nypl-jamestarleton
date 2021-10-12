@@ -58,8 +58,8 @@ function nypl_fall_preprocess_field(&$variables, $hook) {
 
 function nypl_fall_page_attachments_alter(&$page) {
   $page['#attached']['library'][] = 'nypl_fall/global';
+  $page['#attached']['library'][] = 'nypl_fall/bootstrap_cdn';
 }
-
 
 function _nypl_fall_date_helper($date) {
 $before_or_on_today = strtotime($date) < time();

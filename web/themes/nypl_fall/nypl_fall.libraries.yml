@@ -23,3 +23,21 @@ global:
     theme:
       css/theme/cards.css: {}
       css/theme/print.css: { media: print }
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+bootstrap_cdn:
+  js: 
+    https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js: {}
+  css:
+    base:
+      https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
