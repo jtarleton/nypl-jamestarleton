@@ -1,0 +1,55 @@
+.card-header { background-color: #00a1b0 ; }
+
+.card-subheader { background-color: #cbe8cb; }
+
+.card-exhibit-title {
+	 background-color: #efedeb;
+	color: #9733a6;
+}
+
+
+
+.card-date-info {
+	font-weight: bold;
+	padding:10px;
+}
+
+
+
+.card-exhibit-details {
+background-color: #f8f8f7; 
+}
+
+.img-card {
+	display: inline;
+}
+
+.library-name-card {
+	font-weight: 700;
+	margin: 5px 0;
+	padding:10px;
+}
+
+.startend-date-card {
+		border: 1px solid #ccc;
+background-color: #F0F0F0;
+padding:10px;
+}
+
+.body-card {
+		border: 1px solid #CCC;
+		background-color: #F0F0F0;
+		float:left;
+margin:5px 0;
+font-size:14px;
+padding:10px;
+}
+
+.tags-card {
+	padding:10px;
+	background-color: #F0F0F0;
+	clear:both;
+}
+
+
+

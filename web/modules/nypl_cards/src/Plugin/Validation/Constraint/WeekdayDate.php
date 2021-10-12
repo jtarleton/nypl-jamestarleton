@@ -15,6 +15,6 @@ use Symfony\Component\Validator\Constraint;
  */
 class WeekdayDate extends Constraint {
 
-  public $needsValue = 'Please enter a weekday for field(s): %field_start %field_end';
+  public $needsValue = 'Please enter a weekday for %field.';
 
 }

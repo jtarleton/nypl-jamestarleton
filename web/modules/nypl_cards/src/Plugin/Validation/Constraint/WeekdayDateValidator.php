@@ -11,66 +11,28 @@ use Symfony\Component\Validator\ConstraintValidator;
  */
 class WeekdayDateValidator extends ConstraintValidator {
 
+
+  private $default_tz = 'America/New_York';
+
   /**
    * {@inheritdoc}
    */
   public function validate($value, Constraint $constraint) {
-    // Since the constraint was added to an entity type, $value will
-    // represent the Nyc Card entity.
-    /** @var \Drupal\Core\Entity\EntityInterface $entity */
-    $field =&$value;
 
-    /* Since we have the entire entity, our validation can check multiple
-    // fields. This helps perform validations on the entity as a whole as
-    // opposed to only a field.
-    if (
-      empty($entity->field_start_date->getValue()) &&
-      empty($entity->field_end_date->getValue())
-    ) {
+    $date = $value[0]->getValue()['value'];
+    $label = $value[0]->getFieldDefinition()->getLabel();
 
+    if ($this->isWeekend($date)) {
       $this->context->addViolation($constraint->needsValue, [
-        '%field_start' => 'Start Date',
-        '%field_end' =>'End Date',
+        '%field' => $label
       ]);
     }
-
-    if (
-      $this->isWeekend($entity->field_start_date->getValue()) &&
-      $this->isWeekend($entity->field_end_date->getValue())
-    ) {
-      $this->context->addViolation($constraint->needsValue, [
-        '%field_start' => 'Start Date',
-        '%field_end' =>'End Date',
-      ]);
-    } */
-
-    if (
-      $this->isWeekend($field->getValue())
-    ) {
-      $this->context->addViolation($constraint->needsValue, [
-        '%field_start' => 'Start Date',
-        '%field_end' =>'',
-      ]);
-    }
-
-    if (
-      $this->isWeekend($field->getValue())
-    ) {
-      $this->context->addViolation($constraint->needsValue, [
-        '%field_start' => '',
-        '%field_end' =>'End Date',
-      ]);
-    }
-
-
-
-
   }
 
   public function isWeekend($date) {
     $default_tz = date_default_timezone_get();
-    $tz = (!empty($default_tz))  ? $default_tz : 'America/New_York';
-    $inputDate = \DateTime::createFromFormat("d-m-Y", $date, new \DateTimeZone($tz));
+    $tz = (!empty($default_tz))  ? $default_tz : $this->default_tz;
+    $inputDate = \DateTime::createFromFormat("Y-m-d", $date, new \DateTimeZone($tz));
     return $inputDate->format('N') >= 6;
   }
 
@@ -78,7 +40,7 @@ class WeekdayDateValidator extends ConstraintValidator {
   // For the current date
   public function isTodayWeekend() {
     $default_tz = date_default_timezone_get();
-    $tz = (!empty($default_tz))  ? $default_tz : 'America/New_York';
+    $tz = (!empty($default_tz))  ? $default_tz : $this->default_tz;
     $currentDate = new \DateTime("now", $tz);
     return $currentDate->format('N') >= 6;
   }

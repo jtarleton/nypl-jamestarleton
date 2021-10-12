@@ -1,0 +1,23 @@
+uuid: 15401f6b-3292-42d1-b068-fb43fb82653a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_library_name
+    - node.type.nypl_card
+  module:
+    - text
+id: node.nypl_card.field_library_name
+field_name: field_library_name
+entity_type: node
+bundle: nypl_card
+label: 'Library Name'
+description: 'The library name associated with the content.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text
+
+

@@ -1,0 +1,24 @@
+uuid: 13e5f0ab-616c-42ed-a1e1-605a3620ca89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_start_date
+    - node.type.nypl_card
+  module:
+    - datetime
+id: node.nypl_card.field_start_date
+field_name: field_start_date
+entity_type: node
+bundle: nypl_card
+label: 'Start Date'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime
